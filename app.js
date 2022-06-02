@@ -6,11 +6,13 @@ import morgan from "morgan";
 import exphbs from "express-handlebars";
 import router1 from "./routes/index.js";
 import router2 from "./routes/auth.js";
+import router3 from "./routes/stories.js";
 import passport from 'passport';
 import passportFunction from "./config/passport.js";
 import session from "express-session";
 import MongoStore  from "connect-mongo";
 import connectDB from "./config/db.js";
+import {formatDate, truncate, stripTags} from "./helpers/hbs.js"
 
 //Load Config
 dotenv.config({path: './config/config.env'});
@@ -24,11 +26,15 @@ connectDB();
 // Creating express object
 const app = express();
 
+// Body Parser
+app.use(express.urlencoded({extended: false}))
+app.use(express.json())
+
 //Logging info to console
 app.use(morgan('dev'));
 
 //Handlebars
-app.engine('.hbs', exphbs.engine({defaultLayout: "main", extname: '.hbs'}));
+app.engine('.hbs', exphbs.engine({helpers: {formatDate, truncate, stripTags}, defaultLayout: "main", extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 //Sessions
@@ -51,6 +57,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Routes
 app.use('/', router1)
 app.use('/auth', router2)
+app.use('/stories', router3)
 
 // PORT
 const PORT = process.env.PORT || 3000;
