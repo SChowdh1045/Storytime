@@ -11,3 +11,16 @@ p{
 .card{
     padding: 30px 10px;
 }
+
+.fa_small{
+    font-size: 16px !important;
+}
+
+.btn_float{
+    float: left;
+    margin-right: 10px;
+}
+
+.img_big{
+    width: 180px;
+}
