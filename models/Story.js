@@ -16,15 +16,15 @@ const StorySchema = new mongoose.Schema({
         enum: ['public','private']
     },
     user: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.SchemaTypes.ObjectId,
         ref: 'User'
     },    
     createdAt: {
         type: Date,
-        default: Date.now
+        default: Date.now()
     }
 })
 
 
-// 'User' is a random model name
+// 'Story' is a random model name
 export default mongoose.model('Story', StorySchema);

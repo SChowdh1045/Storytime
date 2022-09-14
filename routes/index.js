@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Login/Landing Page
 // GET /
-// 1st "login" parameter is the from "views" dir ; 2nd "login" in the object is from "layouts" dir (within "views")
+// 1st "login" parameter is from "views" dir ; 2nd "login" in the object is from "layouts" dir (within "views")
 router.get('/', ensureGuest, (req, res) => {
     res.render('login', {layout: 'login'});
 })

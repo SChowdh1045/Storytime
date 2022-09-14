@@ -3,9 +3,9 @@ p{
 }
 
 .login_container{
-    width: 400px;       
-    margin-top: 50px;    
+    width: 400px;            
     text-align: center;
+    margin: 5% auto;
 }
 
 .card{

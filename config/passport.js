@@ -1,8 +1,8 @@
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
-import mongoose from "mongoose";
 import User from '../models/User.js';
 
 export default function(passport){
+    // "use()" takes 1 argument
     passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,

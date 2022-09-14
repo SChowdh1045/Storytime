@@ -8,7 +8,7 @@ import router1 from "./routes/index.js";
 import router2 from "./routes/auth.js";
 import router3 from "./routes/stories.js";
 import methodOverride from "method-override";
-import passport from 'passport';
+import passport from "passport";
 import passportFunction from "./config/passport.js";
 import session from "express-session";
 import MongoStore  from "connect-mongo";
@@ -27,7 +27,7 @@ connectDB();
 // Creating express object
 const app = express();
 
-// Body Parser
+// Body Parser Middlewares (for the server to be able to parse json & url-encoded data from client request)
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
@@ -40,14 +40,14 @@ app.use(methodOverride( (req, res) => {
         return method
       }
     })
-  )
+)
 
 //Logging info to console
 app.use(morgan('dev'));
 
-//Handlebars
-app.engine('.hbs', exphbs.engine({helpers: {formatDate, truncate, stripTags, editIcon, select}, defaultLayout: "main", extname: '.hbs'}));
-app.set('view engine', '.hbs');
+//Handlebars Configuration
+app.set('view engine', 'hbs');
+app.engine('hbs', exphbs.engine({helpers: {formatDate, truncate, stripTags, editIcon, select}, defaultLayout: "main", extname: 'hbs'}));
 
 //Sessions
 app.use(session({
