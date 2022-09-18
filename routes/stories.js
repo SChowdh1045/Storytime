@@ -14,7 +14,10 @@ router.get('/add', ensureAuth, (req, res) => {
 // POST /stories
 router.post('/', ensureAuth, async (req, res) => {
     try{
-        req.body.user = req.user.id
+        // console.log("req.body BEFORE: ", req.body)  
+        req.body.user = req.user.id  // Adding a new req.body object property named "user" 
+        // console.log("req.body AFTER: ", req.body)        
+
         await Story.create(req.body)
         res.redirect('/dashboard')
     } 
@@ -36,7 +39,7 @@ router.get('/', ensureAuth, async (req, res) => {
     }
 })
 
-// Shows Single story
+// Shows single story
 // GET /stories/:id
 router.get('/:id', ensureAuth, async (req, res) => {
     try{
@@ -112,6 +115,7 @@ router.delete('/:id', ensureAuth, async (req, res) => {
         console.error(err)
         return res.render('error/500')        
     }
+    
 })
 
 // User stories

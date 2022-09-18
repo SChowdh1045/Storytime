@@ -3,11 +3,11 @@ import passport from "passport";
 
 const router = express.Router();
 
-// auth w/ Google
+// authentication w/ Google (Redirects to this route when user clicks the "Log In With Google" button in the login page)
 // GET /auth/google
 router.get('/google', passport.authenticate('google', {scope: ['profile']}))
 
-// Google auth callback
+// Google auth callback (Redirects to this route after user clicks on their google account)
 // GET /auth/google/callback
 router.get(
     '/google/callback', 

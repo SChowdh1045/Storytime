@@ -4,9 +4,9 @@ import {fileURLToPath} from "url";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import exphbs from "express-handlebars";
-import router1 from "./routes/index.js";
-import router2 from "./routes/auth.js";
-import router3 from "./routes/stories.js";
+import router_index from "./routes/index.js";
+import router_auth from "./routes/auth.js";
+import router_stories from "./routes/stories.js";
 import methodOverride from "method-override";
 import passport from "passport";
 import passportFunction from "./config/passport.js";
@@ -46,8 +46,8 @@ app.use(methodOverride( (req, res) => {
 app.use(morgan('dev'));
 
 //Handlebars Configuration
-app.set('view engine', 'hbs');
-app.engine('hbs', exphbs.engine({helpers: {formatDate, truncate, stripTags, editIcon, select}, defaultLayout: "main", extname: 'hbs'}));
+app.engine('.hbs', exphbs.engine({helpers: {formatDate, truncate, stripTags, editIcon, select}, defaultLayout: "main", extname: '.hbs'}));
+app.set('view engine', '.hbs');
 
 //Sessions
 app.use(session({
@@ -73,9 +73,9 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Routes
-app.use('/', router1)
-app.use('/auth', router2)
-app.use('/stories', router3)
+app.use('/', router_index)
+app.use('/auth', router_auth)
+app.use('/stories', router_stories)
 
 // PORT
 const PORT = process.env.PORT || 3000;

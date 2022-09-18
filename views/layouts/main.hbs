@@ -14,14 +14,14 @@
 
         <link rel="stylesheet" href="/css/style.css">
 
-        <title>Story Books</title>
+        <title>Storytime</title>
     </head>
 
     <body>        
         {{> _header}}
         {{> _add_btn}}
         
-        <div class="container">            
+        <div class="container add_space">            
             {{{body}}}
         </div>
 
@@ -34,13 +34,13 @@
         </script>
 
         <script>
-            {{!-- in _header.hbs --}}
+            {{!-- (THIS IS A COMMENT) in _header.hbs --}}            
             M.Sidenav.init(document.querySelector('.sidenav'))
 
-            {{!-- in addStory.hbs --}}
+            {{!-- (THIS IS A COMMENT) in addStory.hbs --}}
             M.FormSelect.init(document.querySelector('#status'))
 
-            {{!-- in addStory.hbs --}}
+            {{!-- (THIS IS A COMMENT) in addStory.hbs --}}
             CKEDITOR.replace('body', {plugins: 'wysiwygarea, toolbar, basicstyles, link'})
         </script>
     </body>

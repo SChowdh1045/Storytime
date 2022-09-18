@@ -24,3 +24,18 @@ p{
 .img_big{
     width: 180px;
 }
+
+.fixed_nav{
+    position: fixed;
+    top: 0;
+    z-index: 998;
+}
+
+.add_space{
+    margin-top: 7%;
+    margin-bottom: 5%;
+}
+
+.sidenav{
+    z-index: 999;
+}
