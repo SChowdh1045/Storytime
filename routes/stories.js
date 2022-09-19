@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Shows "add story" page
 // GET /stories/add
-router.get('/add', ensureAuth, (req, res) => {
+router.get('/add', ensureAuth, (req, res) => {    
     res.render('stories/addStory');
 })
 
